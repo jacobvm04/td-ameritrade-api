@@ -11,7 +11,7 @@ setuptools.setup(
     description="A python wrapper for the TD ameritrade API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jacobvm04/",
+    url="https://github.com/jacobvm04/td-ameritrade-api",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
