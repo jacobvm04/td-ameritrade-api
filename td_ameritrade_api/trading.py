@@ -80,7 +80,7 @@ def buy_limit(account_id, symbol, price, quantity, access_token):
         "session": "NORMAL",
         "price": price,
         "duration": "DAY",
-        "orderStrategyType": "TRIGGER",
+        "orderStrategyType": "SINGLE",
         "orderLegCollection": [
             {
                 "instruction": "BUY",
