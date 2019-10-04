@@ -71,6 +71,34 @@ def place_conditional_order(account_id, symbol, price_to_sell, quantity, access_
 
     return r.json()
 
+def buy_limit(account_id, symbol, price, quantity, access_token):
+
+    headers = {'Authorization': f"Bearer {access_token}"}
+
+    data = {
+        "orderType": "LIMIT",
+        "session": "NORMAL",
+        "price": price,
+        "duration": "DAY",
+        "orderStrategyType": "TRIGGER",
+        "orderLegCollection": [
+            {
+                "instruction": "BUY",
+                "quantity": quantity,
+                "instrument": {
+                    "symbol": symbol,
+                    "assetType": "EQUITY"
+                }
+            }
+        ]
+    }
+
+    r = requests.post(base_url(f'/accounts/{account_id}/orders'), headers=headers, json=data)
+    if r.status_code != 200:
+        raise ApiError(f"POST /accounts/{account_id}/orders", r.status_code, r.json()['error'])
+
+    return r.json()
+
 def place_conditional_order_data(account_id, symbol, price_to_sell, quantity, access_token, buy_price=None):
     price = 0
 

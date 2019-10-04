@@ -3,7 +3,7 @@ from .errors import ApiError
 from .data import quote, search, price_history, fundamental
 from .accounts import account, transactions, positions
 from .helpers import api_call
-from .trading import orders, place_conditional_order_data, place_conditional_order
+from .trading import orders, place_conditional_order_data, place_conditional_order, buy_limit
 from .watchlist import watchlists, watchlist
 
 class client:
@@ -68,3 +68,7 @@ class client:
     @api_call
     def place_conditional_order(self, symbol, price_to_sell, quantity, buy_price=None):
         return place_conditional_order(self.account_id, symbol, price_to_sell, quantity, self.access_token, buy_price=buy_price)
+
+    @api_call
+    def buy_limit(self, symbol, price, quantity):
+        return buy_limit(self.account_id, symbol, price, quantity, self.access_token)
