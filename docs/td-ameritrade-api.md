@@ -22,6 +22,14 @@ $ python3.7 -m install python-dotenv
 
 ## Basic setup
 
+First install the python package
+
+```text
+$ python3.7 -m install td-ameritrade-api
+```
+
+Then you have to initialize a client object with your refresh token, API consumer key, and your account id. Then you can access all of the APIs functions.
+
 ```python
 from dotenv import load_dotenv
 import td_ameritrade_api as td
@@ -33,5 +41,5 @@ client = td.client(getenv("REFRESH_TOKEN"), getenv("CONSUMER_KEY"), getenv("ACCO
 print(client.quote("AAPL"))
 ```
 
-First you have to initialize a client object with your refresh token, API consumer key, and your account id. Then you can access all of the APIs functions.
+
 
