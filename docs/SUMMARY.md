@@ -1,5 +1,5 @@
 # Table of contents
 
-* [TD Ameritrade API](README.md)
-* [TEst](test.md)
+* [Introduction](../README.md)
+* [Getting Started](td-ameritrade-api.md)
 

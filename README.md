@@ -1,4 +1,4 @@
-# TD Ameritrade API
+# Introduction
 
 ## Setup instructions
 
