@@ -10,7 +10,7 @@ def api_call(func):
         try:
             return func(*args, **kwargs)
         except ApiError as error:
-            self.refresh_access_token()
+            self.__refresh_access_token()
             return func(*args, **kwargs)
 
     return wrapped
