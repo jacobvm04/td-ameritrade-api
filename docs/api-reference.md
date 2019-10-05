@@ -138,6 +138,47 @@ Returns the amount of available funds in your account.
 
 * **ApiError** - Raised when there is an error calling the API.
 
+
+
+
+
+_`dict`_ `client.`**`price_history`**`(`_`symbol, *, period_type='day', period=1, frequency_type='minute', frequency=1, start_date=None, end_date=None, need_extended_hours_data=False`_`)`
+
+Returns price history for the specified symbol.
+
+**Parameters**
+
+* **symbol** \(Required\[str\]\)  An asset symbol.
+* **period\_type** \(Optional\[str\]\)  The type of period to show. Valid values are `day`, `month`, `year`, or `ytd` \(year to date\).
+* **period** \(Optional\[int\]\) The number of periods to show.
+* **frequency\_type** \(Optional\[str\]\)  The type of frequency with which a new candle is formed. Valid frequency\_types by period\_type: `day`: minute `month`: daily, weekly `year`: daily, weekly, monthly `ytd`: daily, weekly
+* **frequency** \(Optional\[int\]\)  The number of the frequency\_type to be included in each candle. Valid frequencies by frequency\_type: `minute`: 1, 5, 10, 15, 30 `daily`: 1 `weekly`: 1 `monthly`: 1
+* **start\_date** \(Optional\[int\]\) Start date as milliseconds since epoch. If start\_date and end\_date are provided, period should not be provided.
+* **end\_date** \(Optional\[int\]\) End date as milliseconds since epoch. If start\_date and end\_date are provided, period should not be provided. 
+* **need\_extended\_hours\_data** \(Optional\[bool\]\) If true, extended hours data will be included.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`void`_ `client.`**`buy_limit`**`(`_`symbol, price, quanity`_`)`
+
+Places a limit order for the specified symbol at the specified price for the specified quantity.
+
+**Parameters**
+
+* **symbol** \(Required\[str\]\) An asset symbol.
+* **price** \(Required\[float\]\) The price that you want the limit order to be at.
+* **quantity** \(Required\[int\]\) The amount of the asset that you want to buy.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
 ## Exceptions
 
 ### ApiError
