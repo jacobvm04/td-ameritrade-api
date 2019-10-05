@@ -71,7 +71,7 @@ def place_conditional_order(account_id, symbol, price_to_sell, quantity, access_
 
     return r.json()
 
-def buy_limit(account_id, symbol, price, quantity, access_token):
+def buy_limit_equity(account_id, symbol, price, quantity, access_token):
 
     headers = {'Authorization': f"Bearer {access_token}"}
 
@@ -94,6 +94,43 @@ def buy_limit(account_id, symbol, price, quantity, access_token):
     }
 
     r = requests.post(base_url(f'/accounts/{account_id}/orders'), headers=headers, json=data)
+    if r.status_code != 200:
+        raise ApiError(f"POST /accounts/{account_id}/orders", r.status_code, r.json()['error'])
+
+    return r.json()
+
+def sell_limit_equity(account_id, symbol, price, quantity, access_token):
+
+    headers = {'Authorization': f"Bearer {access_token}"}
+
+    data = {
+        "orderType": "LIMIT",
+        "session": "NORMAL",
+        "price": price,
+        "duration": "DAY",
+        "orderStrategyType": "SINGLE",
+        "orderLegCollection": [
+            {
+                "instruction": "SELL",
+                "quantity": quantity,
+                "instrument": {
+                    "symbol": symbol,
+                    "assetType": "EQUITY"
+                }
+            }
+        ]
+    }
+
+    r = requests.post(base_url(f'/accounts/{account_id}/orders'), headers=headers, json=data)
+    if r.status_code != 200:
+        raise ApiError(f"POST /accounts/{account_id}/orders", r.status_code, r.json()['error'])
+
+    return r.json()
+
+def place_custom_order(account_id, order, access_token):
+    headers = {'Authorization': f"Bearer {access_token}"}
+
+    r = requests.post(base_url(f'/accounts/{account_id}/orders'), headers=headers, json=order)
     if r.status_code != 200:
         raise ApiError(f"POST /accounts/{account_id}/orders", r.status_code, r.json()['error'])
 

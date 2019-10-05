@@ -3,7 +3,7 @@ from .errors import ApiError
 from .data import quote, search, price_history, fundamental
 from .accounts import account, transactions, positions, available_funds
 from .helpers import api_call
-from .trading import orders, place_conditional_order_data, place_conditional_order, buy_limit
+from .trading import orders, place_conditional_order_data, place_conditional_order, buy_limit_equity, sell_limit_equity, place_custom_order
 from .watchlist import watchlists, watchlist
 
 class client:
@@ -11,7 +11,7 @@ class client:
     def __init__(self, refresh_token, consumer_key, account_id=""):
         self.__refresh_token = refresh_token
         self.__consumer_key = consumer_key
-        self.account_id = account_id
+        self.__account_id = account_id
 
         self.__refresh_access_token()
 
@@ -23,7 +23,7 @@ class client:
 
     @api_call
     def available_funds(self):
-        return available_funds(self.account_id, self.__access_token)
+        return available_funds(self.__account_id, self.__access_token)
 
     @api_call
     def quote(self, symbol):
@@ -35,23 +35,23 @@ class client:
 
     @api_call
     def account(self):
-        return account(self.account_id, self.__access_token)
+        return account(self.__account_id, self.__access_token)
 
     @api_call
     def orders(self):
-        return orders(self.account_id, self.__access_token)
+        return orders(self.__account_id, self.__access_token)
 
     @api_call
     def transactions(self):
-        return transactions(self.account_id, self.__access_token)
+        return transactions(self.__account_id, self.__access_token)
 
     @api_call
     def watchlists(self):
-        return watchlists(self.account_id, self.__access_token)
+        return watchlists(self.__account_id, self.__access_token)
 
     @api_call
     def watchlist(self, watchlist_id):
-        return watchlist(watchlist_id, self.account_id, self.__access_token)
+        return watchlist(watchlist_id, self.__account_id, self.__access_token)
 
     @api_call
     def fundamental(self, symbol):
@@ -63,16 +63,24 @@ class client:
 
     @api_call
     def place_conditional_order_data(self, symbol, price_to_sell, quantity, buy_price=None):
-        return place_conditional_order_data(self.account_id, symbol, price_to_sell, quantity, self.__access_token, buy_price=buy_price)
+        return place_conditional_order_data(self.__account_id, symbol, price_to_sell, quantity, self.__access_token, buy_price=buy_price)
 
     @api_call
     def positions(self):
-        return positions(self.account_id, self.__access_token)
+        return positions(self.__account_id, self.__access_token)
 
     @api_call
     def place_conditional_order(self, symbol, price_to_sell, quantity, buy_price=None):
-        return place_conditional_order(self.account_id, symbol, price_to_sell, quantity, self.__access_token, buy_price=buy_price)
+        return place_conditional_order(self.__account_id, symbol, price_to_sell, quantity, self.__access_token, buy_price=buy_price)
 
     @api_call
-    def buy_limit(self, symbol, price, quantity):
-        return buy_limit(self.account_id, symbol, price, quantity, self.__access_token)
+    def buy_limit_equity(self, symbol, price, quantity):
+        return buy_limit_equity(self.__account_id, symbol, price, quantity, self.__access_token)
+
+    @api_call
+    def sell_limit_equity(self, symbol, price, quantity):
+        return sell_limit_equity(self.__account_id, symbol, price, quantity, self.__access_token)
+
+    @api_call
+    def place_custom_order(self, order):
+        return place_custom_order(self.__account_id, order, self.__access_token)
