@@ -6,9 +6,9 @@ _`class`_ `td_ameritrade_api.`**`client`**`(`_`refresh_token, consumer_key, acco
 
 &nbsp;&nbsp;&nbsp;&nbsp;### Parameters
 
-* **refresh\_token** \(Required\[str\]\) The oauth2 refresh token from the TD Ameritrade API used to obtain the access token to use the API.
-* **consumer\_key** \(Required\[str\]\) The API consumer key from when you create an app on TD's developer website.
-* **account\_id** \(Optional\[str\]\) Your account id which is needed to view account stats or place any orders. Trying to call any methods that require this to work will result in an error.
+&nbsp;&nbsp;&nbsp;&nbsp;* **refresh\_token** \(Required\[str\]\) The oauth2 refresh token from the TD Ameritrade API used to obtain the access token to use the API.
+&nbsp;&nbsp;&nbsp;&nbsp;* **consumer\_key** \(Required\[str\]\) The API consumer key from when you create an app on TD's developer website.
+&nbsp;&nbsp;&nbsp;&nbsp;* **account\_id** \(Optional\[str\]\) Your account id which is needed to view account stats or place any orders. Trying to call any methods that require this to work will result in an error.
 
 ### Methods
 
