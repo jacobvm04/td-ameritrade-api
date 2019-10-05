@@ -1,7 +1,7 @@
 from .auth import access_token
 from .errors import ApiError
 from .data import quote, search, price_history, fundamental
-from .accounts import account, transactions, positions, account_cash_balance
+from .accounts import account, transactions, positions, available_funds
 from .helpers import api_call
 from .trading import orders, place_conditional_order_data, place_conditional_order, buy_limit
 from .watchlist import watchlists, watchlist
@@ -22,8 +22,8 @@ class client:
             raise ApiError(f"Error authenticating: {error.args[2]}")
 
     @api_call
-    def cash_balance(self):
-        return account_cash_balance(self.account_id, self.access_token)
+    def available_funds(self):
+        return available_funds(self.account_id, self.access_token)
 
     @api_call
     def quote(self, ticker):
