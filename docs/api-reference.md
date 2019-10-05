@@ -6,48 +6,133 @@ _`class`_ `td_ameritrade_api.`**`client`**`(`_`refresh_token, consumer_key, acco
 
 ### Parameters
 
-* **refresh\_token** \(Required\[str\]\) The oauth2 refresh token from the TD Ameritrade API used to obtain the access token to use the API.
-* **consumer\_key** \(Required\[str\]\) The API consumer key from when you create an app on TD's developer website.
-* **account\_id** \(Optional\[str\]\) Your account id which is needed to view account stats or place any orders. Trying to call any methods that require this to work will result in an error.
+* **refresh\_token** \(Required\[str\]\)  The oauth2 refresh token from the TD Ameritrade API used to obtain the access token to use the API.
+* **consumer\_key** \(Required\[str\]\)  The API consumer key from when you create an app on TD's developer website.
+* **account\_id** \(Optional\[str\]\)  Your account id which is needed to view account stats or place any orders. Trying to call any methods that require this to work will result in an error.
 
 ### Methods
 
 _`dict`_ `client.`**`quote`**`(`_`symbol`_`)`
 
-Returns a quote on the supplied symbol.
+Returns a quote on the supplied symbol. 
+
 **Parameters**
 
-* **symbol** \(Required\[str\]\) The symbol to get the quote of.
+* **symbol** \(Required\[str\]\)  The symbol to get the quote of.
 
 **Raises**
 
 * **ApiError** - Raised when there is an error calling the API.
+
+
 
 _`dict`_ `client.`**`search`**`(`_`symbol`_`)`
 
-Search or retrieve instrument data.
+Search or retrieve instrument data. 
+
 **Parameters**
 
-* **symbol** \(Required\[str\]\) An asset symbol.
+* **symbol** \(Required\[str\]\)  An asset symbol.
 
 **Raises**
 
 * **ApiError** - Raised when there is an error calling the API.
+
+
 
 _`dict`_ `client.`**`fundemental`**`(`_`symbol`_`)`
 
-Returns fundamental data for the supplied symbol.
+Returns fundamental data for the supplied symbol. 
+
 **Parameters**
 
-* **symbol** \(Required\[str\]\) An asset symbol.
+* **symbol** \(Required\[str\]\)  An asset symbol.
 
 **Raises**
 
 * **ApiError** - Raised when there is an error calling the API.
+
+
 
 _`dict`_ `client.`**`account`**`()`
 
 Returns Account balances.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`dict`_ `client.`**`orders`**`()`
+
+Returns all orders for your account.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`dict`_ `client.`**`transactions`**`()`
+
+Returns all transactions for your account.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`dict`_ `client.`**`watchlists`**`()`
+
+Returns all watch lists for your account.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`dict`_ `client.`**`watchlist`**`(`_`watchlist_id`_`)`
+
+Returns a specific watch list. 
+
+**Parameters**
+
+* **watchlist\_id** \(Required\[str\]\) The id of the watchlist you want to get.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`dict`_ `client.`**`positions`**`()`
+
+Returns all positions for your account.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`dict`_ `client.`**`available_funds`**`()`
+
+Returns the amount of available funds in your account.
 
 **Raises**
 
