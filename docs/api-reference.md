@@ -4,7 +4,7 @@
 
 _`class`_ `td_ameritrade_api.`**`client`**`(`_`refresh_token, consumer_key, account_id`_`)`
 
-### Parameters
+&nbsp;&nbsp;&nbsp;&nbsp;### Parameters
 
 * **refresh\_token** \(Required\[str\]\) The oauth2 refresh token from the TD Ameritrade API used to obtain the access token to use the API.
 * **consumer\_key** \(Required\[str\]\) The API consumer key from when you create an app on TD's developer website.
