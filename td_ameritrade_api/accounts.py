@@ -30,3 +30,14 @@ def positions(account_id, access_token):
         raise ApiError(f"GET /accounts/{account_id}", r.status_code, r.json()['error'])
 
     return r.json()['securitiesAccount']['positions']
+
+def account_cash_balance(account_id, access_token):
+    headers = {'Authorization': f"Bearer {access_token}"}
+    params = {'fields': 'positions,orders'}
+
+    r = requests.get(base_url(f'/accounts/{account_id}'), headers=headers, params=params)
+    if r.status_code != 200:
+        raise ApiError(f"GET /accounts/{account_id}", r.status_code, r.json()['error'])
+
+    return r.json()['securitiesAccount']['cashBalance']
+
