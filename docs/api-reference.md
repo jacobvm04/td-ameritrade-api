@@ -14,7 +14,7 @@ _`class`_ `td_ameritrade_api.`**`client`**`(`_`refresh_token, consumer_key, acco
 
 _`dict`_ `client.`**`quote`**`(`_`symbol`_`)`
 
-Returns a quote on the supplied symbol.  
+Returns a quote on the supplied symbol.
 **Parameters**
 
 * **symbol** \(Required\[str\]\) The symbol to get the quote of.
@@ -25,7 +25,7 @@ Returns a quote on the supplied symbol.
 
 _`dict`_ `client.`**`search`**`(`_`symbol`_`)`
 
-Search or retrieve instrument data.  
+Search or retrieve instrument data.
 **Parameters**
 
 * **symbol** \(Required\[str\]\) An asset symbol.
@@ -36,10 +36,18 @@ Search or retrieve instrument data.
 
 _`dict`_ `client.`**`fundemental`**`(`_`symbol`_`)`
 
-Returns fundamental data for the supplied symbol.  
+Returns fundamental data for the supplied symbol.
 **Parameters**
 
 * **symbol** \(Required\[str\]\) An asset symbol.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+_`dict`_ `client.`**`account`**`()`
+
+Returns Account balances.
 
 **Raises**
 
