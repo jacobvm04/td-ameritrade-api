@@ -165,15 +165,49 @@ Returns price history for the specified symbol.
 
 
 
-_`void`_ `client.`**`buy_limit`**`(`_`symbol, price, quanity`_`)`
+_`void`_ `client.`**`buy_limit_equity`**`(`_`symbol, price, quanity`_`)`
 
-Places a limit order for the specified symbol at the specified price for the specified quantity.
+Places a limit order to buy for the specified equity at the specified price for the specified quantity.
 
 **Parameters**
 
 * **symbol** \(Required\[str\]\) An asset symbol.
 * **price** \(Required\[float\]\) The price that you want the limit order to be at.
 * **quantity** \(Required\[int\]\) The amount of the asset that you want to buy.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`void`_ `client.`**`sell_limit_equity`**`(`_`symbol, price, quanity`_`)`
+
+Places a limit order to sell for the specified equity at the specified price for the specified quantity.
+
+**Parameters**
+
+* **symbol** \(Required\[str\]\) An asset symbol.
+* **price** \(Required\[float\]\) The price that you want the limit order to be at.
+* **quantity** \(Required\[int\]\) The amount of the asset that you want to sell.
+
+**Raises**
+
+* **ApiError** - Raised when there is an error calling the API.
+
+
+
+
+
+_`void`_ `client.`**`place_custom_order`**`(`_`symbol, price, quanity`_`)`
+
+Places a custom order. Check [here ](https://developer.tdameritrade.com/content/place-order-samples)for documentation on how to make custom orders.
+
+**Parameters**
+
+* **order**\(Required\[dict\]\) The order to place.
 
 **Raises**
 
