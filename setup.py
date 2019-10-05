@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="td-ameritrade-api",
-    version="1.0.2",
+    version="1.0.3",
     author="Jacob Van Meter",
     author_email="jacobvm04@gmail.com",
     description="A python wrapper for the TD ameritrade API",
