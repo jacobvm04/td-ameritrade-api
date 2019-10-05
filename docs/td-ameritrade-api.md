@@ -1,4 +1,4 @@
-# Getting Started
+# Quickstart
 
 ## Getting your API information
 

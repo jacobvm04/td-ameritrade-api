@@ -1,5 +1,5 @@
 # Table of contents
 
 * [Introduction](../README.md)
-* [Getting Started](td-ameritrade-api.md)
+* [Quickstart](td-ameritrade-api.md)
 
