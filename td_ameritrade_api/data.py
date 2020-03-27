@@ -45,3 +45,20 @@ def price_history(symbol, access_token, *, period_type='day', period=1, frequenc
         raise ApiError(f"GET /marketdata/{symbol}/pricehistory", r.status_code, r.json()['error'])
 
     return r.json()
+
+
+def option_chain(ticker, access_token, *, contract_type='ALL', strike_count=20, from_date=None, to_date=None, exp_month=None):
+    headers = {'Authorization': f"Bearer {access_token}"}
+    params = {'symbol':ticker, 'contractType': contract_type, "strikeCount": strike_count}
+    if exp_month:
+        params["expMonth"] = exp_month
+    if to_date:
+        params["toDate"] = to_date
+    if from_date:
+        params["fromDate"] = from_date
+
+    r = requests.get(base_url(f'/marketdata/chains'), headers=headers, params=params)
+    if r.status_code != 200:
+        raise ApiError(f"GET /marketdata/chains", r.status_code, r.json()['error'])
+
+    return r.json()
