@@ -1,6 +1,6 @@
 from .auth import access_token
 from .errors import ApiError
-from .data import quote, search, price_history, fundamental
+from .data import quote, search, price_history, fundamental, option_chain
 from .accounts import account, transactions, positions, available_funds
 from .helpers import api_call
 from .trading import orders, place_conditional_order_data, place_conditional_order, buy_limit_equity, sell_limit_equity, place_custom_order
@@ -84,3 +84,8 @@ class client:
     @api_call
     def place_custom_order(self, order):
         return place_custom_order(self.__account_id, order, self.__access_token)
+
+    @api_call
+    def option_chains(self, symbol, *, contract_type='ALL', strike_count=20, from_date=None, to_date=None, exp_month=None):
+        return option_chain(symbol, self.__access_token, contract_type=contract_type, strike_count=strike_count, 
+                            from_date=from_date, to_date=to_date, exp_month=exp_month)
